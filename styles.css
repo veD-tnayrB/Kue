@@ -15,7 +15,7 @@ body {
     background: var(--Gray);
     color: var(--General-Text);
 
-    min-width: 315px;
+    min-width: 255px;
 
     opacity: 0;
     animation: welcome 1s ease-in forwards;
@@ -34,7 +34,7 @@ body {
     box-shadow: 0 1px 15px 1px #d8d8d8;
 
     width: 100vw;
-    min-width: 315px;
+    min-width: 255px;
     height: 80px;
 
     display: flex;
@@ -147,7 +147,7 @@ body {
 /* Main Section */ 
 #main {
     width: 100vw;
-    min-height: 80vh;
+    min-height: 85vh;
 
     display: flex;
     justify-content: space-between;
@@ -191,9 +191,10 @@ body {
 }
 
 #loading-image {
-    animation: rotate 1s infinite ease-in-out;
     width: 50%;
     height: 50%;
+
+    animation: rotate 1s infinite ease-in-out;
 }
 
 @keyframes rotate {
@@ -235,7 +236,7 @@ body {
     overflow-y: scroll;
 
     width: 20px;
-    height: 100vh;
+    min-height: 114px;
 
     position: relative;
     top: 0;
@@ -258,6 +259,8 @@ body {
 
 .history-item {
     background: var(--Gray);
+
+    height: 50px;
 
     margin: 10px 10px 10px 20px;
     padding: 15px 0;
@@ -286,7 +289,7 @@ body {
     box-shadow: 0 5px 10px 1px #d8d8d8;
 
     width: 80%;
-    min-width: 290px;
+    min-width: 200px;
     max-width: 850px;
     height: fit-content;
 
@@ -361,7 +364,7 @@ body {
     color: var(--White);
 
     width: 100%;
-    min-width: 315px;
+    min-width: 255px;
 
     display: flex;
     flex-direction: column;
@@ -433,11 +436,11 @@ body {
     #search-bar-cont {
         grid-area: searchBar;
 
-        width: 120%;
+        width: 90%;
     }
 
     #search-bar {
-        width: 90%;
+        width: 70%;
         height: 100%;
     }
 
@@ -461,6 +464,8 @@ body {
 
     .history-cont {
         box-shadow: none;
+
+        height: 85%;
 
         position: absolute;
         top: 147px;
@@ -506,5 +511,48 @@ body {
 
     .message span {
         font-size: 5vw;
+    }
+}
+
+@media (max-width: 512px) {
+    .history-cont {
+        height: 90%;
+    }
+}
+
+@media (max-width: 350px) {
+
+    #main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #history-button-cont {
+        display: none;
+    }
+
+    .history-cont {
+        border-top: 10px solid var(--General-Text);
+        border-bottom: 10px solid var(--General-Text);
+
+        width: 90%;
+        min-width: 255px;
+        
+        margin: 20px 0;
+
+        position: relative;
+        top: initial;
+    }
+
+    .history-cont * {
+        margin: 10px;
+    }
+
+    #history-title {
+        margin: 0px 10px;
+    }
+
+    .history-item:nth-last-child(1) {
+        margin: 0 10px;
     }
 }

@@ -7,8 +7,8 @@ async function dataBaseConexion(word) {
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/${language}/${word}`);
     
     if (response.status >= 200 && response.status < 400) {
-        const datas = await response.json();
         showMessage(`With what ${word} hmmm...`, '3');
+        const datas = await response.json();
 
         create(datas);
         
