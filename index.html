@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Kue</title>
+        <link rel="stylesheet" href="styles.css">
+        
+        <!-- Font awesome Kit -->
+        <script src="https://kit.fontawesome.com/98f2660b8c.js" crossorigin="anonymous"></script>
+
+        <!-- Font conf -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap" rel="stylesheet">
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header id="header">
+            <nav id="nav">
+                <div id="logo-cont">
+                    <i id="logo" class="fas fa-balance-scale"></i>
+                    <h1 id="logo-text">Kue</h1>
+                </div>
+    
+                <div id="search-bar-cont">
+                    <input id="search-bar" type="search" placeholder="Search... Press Enter to search">
+                    <i class="fas fa-search search-button"></i>
+                </div>
+    
+                <div id="lenguage-cont">
+                    <img id="EEUU-flag" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="English">
+                    <button id="language-selector"><div id="language-indicator"></div></button>
+                    <img id="Spain-flag" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Bandera_de_Espa%C3%B1a.svg" alt="Español">
+                </div>
+            </nav>
+        </header>
+
+        <main id="main">
+            <section id="main-section">
+                <div id="message-welcome-cont" class="message">
+                    <div class="info-cont">
+                        <h2 id="welcome-title">Welcome to Kue!</h2>
+                        <span id="welcome-text">A very special dictionary.</span>
+                    </div>
+                    <img src="Resources/Welcome.svg" alt="Welcome">
+                </div>
+                <!-- Here come the words! -->
+            </section>
+
+            <div id="history-button-cont">
+                <i id="history-button" class="fas fa-bars"></i>
+            </div>
+            <aside class="history-cont">
+                <h3 id="history-title">History</h3>
+                <!-- Here come history -->
+            </aside>
+        </main>
+
+        <!-- This is the template for the word card ;) -->
+        <template id="template-word">
+            <article class="word-cont">
+                <div class="title-type-cont">
+                    <h3 class="word"></h3>
+                    <span class="type"></span>
+                </div>
+                <div class="phonetic-cont">
+                    <span class="phonetic"></span>
+                    <audio class="audio">
+                        <i class="fas fa-ban audio-icon none" alt="Your browser cant load the audio" title="Your browser cant load the audio"></i>
+                    </audio>
+                    <i class="fas fa-play-circle audio-icon play"></i>
+                    <i class="fas fa-pause-circle audio-icon pause"></i>
+                </div>
+                <div class="meaning-cont">
+                    <span class="text-description">Origin: <p class="origin"></p></span>
+                    <span class="text-description">Meaning: <p class="meaning"></p></span>
+                    <span class="text-description">Example: <p class="example"></p></span>
+                </div>
+            </article>
+        </template>
+
+        
+        <footer id="footer">
+            <div id="page-creator-info">
+                <h3>Page creator:</h3>
+                <div>
+                    <a href="twitter.com/BryantDev_"><i class="fab fa-twitter-square social-media-icon"></i></a>
+                    <a href="https://github.com/veD-tnayrB"><i class="fab fa-github-square social-media-icon"></i></a>
+                </div>
+            </div>
+            <span id="reserve">Todos los derechos reservados ®</span>
+            <span id="api-creator-info">API by: help@dictionaryapi.dev</span>
+        </footer>
+
+        <script type="module" src="Events/conexion.js"></script>
+        <script type="module" src="Events/searchBar.js"></script>
+        <script type="module" src="Events/cardMaker.js"></script>
+        <script type="module" src="Events/audioReproducer.js"></script>
+        <script type="module" src="Events/history.js"></script>
+        <script type="module" src="Events/messages.js"></script>
+    </body>
+</html>
