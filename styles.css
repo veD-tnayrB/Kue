@@ -15,8 +15,6 @@ body {
     background: var(--Gray);
     color: var(--General-Text);
 
-    min-width: 255px;
-
     opacity: 0;
     animation: welcome 1s ease-in forwards;
  
@@ -59,7 +57,7 @@ body {
 }
 
 #logo {
-    font-size: 50px;
+    width: 50px;
 }
 
 #logo-text {
@@ -119,7 +117,7 @@ body {
 }
 
 #language-indicator {
-    background: #FFF;
+    background: var(--White);
     border-radius: 50%;
 
     width: 50%;
@@ -147,6 +145,7 @@ body {
 /* Main Section */ 
 #main {
     width: 100vw;
+    min-width: 255px;
     min-height: 85vh;
 
     display: flex;
@@ -166,7 +165,7 @@ body {
 .message {
     width: 100%;
 
-    margin: 10px 0 0 0;
+    margin: 10px 0 50px 0;
 
     display: flex;
     justify-content: space-around;
@@ -236,7 +235,7 @@ body {
     overflow-y: scroll;
 
     width: 20px;
-    min-height: 114px;
+    max-height: 700px;
 
     position: relative;
     top: 0;
@@ -263,7 +262,7 @@ body {
     height: 50px;
 
     margin: 10px 10px 10px 20px;
-    padding: 15px 0;
+    padding: 20px 0 0 0;
 }
 
 .history-item:hover {
@@ -289,11 +288,15 @@ body {
     box-shadow: 0 5px 10px 1px #d8d8d8;
 
     width: 80%;
-    min-width: 200px;
     max-width: 850px;
+
     height: fit-content;
 
     margin: 5px 0;
+}
+
+.word-cont:last-child {
+    margin: 5px 0 20px 0;
 }
 
 .word-cont div {
@@ -317,7 +320,7 @@ body {
 .type {
     color: #000;
     text-transform: capitalize;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .phonetic-cont {
@@ -366,51 +369,57 @@ body {
     width: 100%;
     min-width: 255px;
 
-    display: flex;
-    flex-direction: column;
+    padding: 1px 0 5px 0;
 }
 
-#page-creator-info {
-    width: 20%;
 
-    align-self: center;
+#about-footer-section {
+    width: 80%;
+    min-width: 100px;
+
+    margin: 20px 0 10px 10px;
+}
+
+#about-footer-section h4 {
+    font-size: 20px;
+}
+
+#copy-social-section {
+    border-top: 1px solid var(--White);
+    
+    margin: 0 10px;
+    padding: 10px 0 0 0;
+
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
 }
 
-#page-creator-info h3 {
-    width: 102px;
-}
-
-#page-creator-info div {
-    width: 100%;
+#social-media-cont {
+    width: 30%;
 
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .social-media-icon {
     color: var(--White);
     font-size: 35px;
 
-    transition: transform .5s ease-in-out;
+    transition: transform .1s ease-in-out;
 }
 
 .social-media-icon:hover {
-    transform: rotateZ(360deg);
+    transform: scale(1.2);
 }
-
-#reserve, #api-creator-info {
-    align-self: center;
-}
-
 
 
 /* Media Query Zone*/
 @media (max-width: 600px) {
     #logo {
-        font-size: 25px;
+        width: 25px;
     }
 
     #logo-text {
@@ -451,28 +460,39 @@ body {
 
 
     /* History aside */
-    #history-button-cont {
-        box-shadow: none;
-
-        position: absolute;
-        top: 90%;
+ 
+    #main {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .history-button-active {
-        transform: translateX(-58vw);
+    #history-button-cont {
+        display: none;
     }
 
     .history-cont {
-        box-shadow: none;
+        border-top: 10px solid var(--General-Text);
+        border-bottom: 10px solid var(--General-Text);
 
-        height: 85%;
+        width: 90%;
+        max-height: 701px;
+        
+        margin: 20px 0;
 
-        position: absolute;
-        top: 147px;
+        position: relative;
+        top: initial;
     }
 
-    .history-active {
-        width: 60vw;
+    .history-cont * {
+        margin: 10px;
+    }
+
+    #history-title {
+        margin: 0px 10px;
+    }
+
+    .history-item:nth-last-child(1) {
+        margin: 0 10px;
     }
 
 
@@ -515,44 +535,11 @@ body {
 }
 
 @media (max-width: 512px) {
-    .history-cont {
-        height: 90%;
-    }
-}
-
-@media (max-width: 350px) {
-
-    #main {
+    #copy-social-section {
         flex-direction: column;
-        align-items: center;
     }
 
-    #history-button-cont {
-        display: none;
-    }
-
-    .history-cont {
-        border-top: 10px solid var(--General-Text);
-        border-bottom: 10px solid var(--General-Text);
-
-        width: 90%;
-        min-width: 255px;
-        
-        margin: 20px 0;
-
-        position: relative;
-        top: initial;
-    }
-
-    .history-cont * {
-        margin: 10px;
-    }
-
-    #history-title {
-        margin: 0px 10px;
-    }
-
-    .history-item:nth-last-child(1) {
-        margin: 0 10px;
+    #social-media-cont {
+        width: 100%;
     }
 }

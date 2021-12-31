@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Kue</title>
+        <link rel="shortcut icon" href="Resources/logo.svg" type="image/x-icon">
         <link rel="stylesheet" href="styles.css">
         
         <!-- Font awesome Kit -->
@@ -20,7 +21,7 @@
         <header id="header">
             <nav id="nav">
                 <div id="logo-cont">
-                    <i id="logo" class="fas fa-balance-scale"></i>
+                    <img src="Resources/logo.svg" id="logo">
                     <h1 id="logo-text">Kue</h1>
                 </div>
     
@@ -83,15 +84,21 @@
 
         
         <footer id="footer">
-            <div id="page-creator-info">
-                <h3>Page creator:</h3>
-                <div>
-                    <a href="twitter.com/BryantDev_"><i class="fab fa-twitter-square social-media-icon"></i></a>
-                    <a href="https://github.com/veD-tnayrB"><i class="fab fa-github-square social-media-icon"></i></a>
+            <section id="about-footer-section">
+                <h4>About</h4>
+                <p class="description">This is a project made by Bryant Caballero (veD-tnayrB) to practice the use of APIs with JavaScript Vanilla, currently I do not make any money with this project, the API is not my property.</p>
+            </section>
+
+            <section id="copy-social-section">
+                <span>Copyright © All Rights Reserved by @BryantDev_</span>
+
+                <div id="social-media-cont">
+                    <a title="API Repository" href="https://github.com/meetDeveloper/freeDictionaryAPI" target="_BLANK"><i class="fab fa-github-square social-media-icon"></i></a>
+                    <a title="Web page from API" href="https://dictionaryapi.dev/" target="_BLANK"><i class="fas fa-file social-media-icon"></i></a>
+                    <a title="My GitHub Profile" href="https://github.com/veD-tnayrB" target="_BLANK"><i class="fab fa-github-square social-media-icon"></i></a>
+                    <a title="My Twitter profile" href="https://twitter.com/BryantDev_" target="_BLANK"><i class="fab fa-twitter-square social-media-icon"></i></a>
                 </div>
-            </div>
-            <span id="reserve">Todos los derechos reservados ®</span>
-            <span id="api-creator-info">API by: help@dictionaryapi.dev</span>
+            </section>
         </footer>
 
         <script type="module" src="Events/conexion.js"></script>
