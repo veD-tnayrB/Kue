@@ -1,4 +1,6 @@
 import { addToHistory } from "./history.js";
+import { language } from "./languageSelector.js";
+
 
 const templateWord = document.getElementById('template-word').content;
 const mainSection = document.getElementById('main-section');
@@ -10,6 +12,21 @@ function removeMainSectionElements() {
     if (existingElements.length > 0) {
         existingElements.forEach(word => word.remove());
 
+    }
+};
+
+// Detects the language and based on that sets the language of the labels
+function setLabel(label, labelInEsp, labelInEng, text, path) {
+    if (text !== undefined) {
+        const labelElement = templateWord.querySelector(label);
+
+        if (language === 'en') {
+            labelElement.textContent = labelInEng;
+
+        } else {
+            labelElement.textContent = labelInEsp;
+        }
+        path.textContent = text;
     }
 }
 
@@ -25,11 +42,14 @@ function create(data) {
         const phonetic = templateWord.querySelector('.phonetic');
         phonetic.textContent = element.phonetic;
 
+        
         const audio = templateWord.querySelector('.audio');
-
         const playButton = templateWord.querySelector('.play');
         
         // Detects if audio is available and displays the button in almost being true
+        audio.setAttribute('src', '');
+        playButton.style.display = 'none';
+        
         if (element.phonetics.length > 0) {
             element.phonetics.forEach(item => {
                 if (item.hasOwnProperty('audio') && item.audio !== undefined) {
@@ -38,13 +58,12 @@ function create(data) {
                 }
             });
 
-        } else {
-            audio.setAttribute('src', '');
-            playButton.style.display = 'none';
         }
+        
 
-        const origin = templateWord.querySelector('.origin');
-        origin.textContent = element.origin;
+        const originInfo = templateWord.querySelector('.origin');
+        setLabel('#origin-label', 'Origen:', 'Origin:', element.origin, originInfo);
+        
 
         const meaningElement = templateWord.querySelector('.meaning');
         const exampleElement = templateWord.querySelector('.example');
@@ -54,8 +73,9 @@ function create(data) {
             typeElement.textContent = meaning.partOfSpeech;
 
             meaning.definitions.forEach(def => {
-                meaningElement.textContent = def.definition;
-                exampleElement.textContent = def.example;
+                setLabel('#meaning-label', 'Definicion:', 'Meaning:', def.definition, meaningElement);
+                setLabel('#example-label', 'Ejemplo:', 'Example:', def.example, exampleElement);
+
             })
     });
 
