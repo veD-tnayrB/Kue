@@ -9,29 +9,26 @@ historyButton.addEventListener('click', e => {
     historyButton.classList.toggle('history-button-active')
 })
 
-// Gets the items that were present in the main section by their class
-const searchBar = document.getElementById('search-bar');
+function addToHistory() {
 
-searchBar.addEventListener('keyup', e => {
-    if (e.key === 'Enter') {
-        const currentCards = document.querySelectorAll('.word');
-        const fragment = document.createDocumentFragment();
+    const currentCards = document.querySelectorAll('.word');
+    const fragment = document.createDocumentFragment();
 
-        currentCards.forEach(word => {
-            const newItem = document.createElement('div');
-            newItem.classList.add('history-item');
+    currentCards.forEach(word => {
+        const newItem = document.createElement('div');
+        newItem.classList.add('history-item');
             
-            const wordElement = document.createElement('span')
-            wordElement.classList.add('previous-word')
-            wordElement.textContent = word.textContent;
+        const wordElement = document.createElement('span')
+        wordElement.classList.add('previous-word')
+        wordElement.textContent = word.textContent;
 
 
-            newItem.appendChild(wordElement);
-            fragment.appendChild(newItem);
-        });
-        history.appendChild(fragment);
-    }
-})
+        newItem.appendChild(wordElement);
+        fragment.appendChild(newItem);
+    });
+    history.appendChild(fragment);
+    
+};
 
 
 history.addEventListener('click', e => {
@@ -48,6 +45,8 @@ history.addEventListener('click', e => {
         return
     }
 
-    dataBaseConexion(word)
+    dataBaseConexion(word);
 
 })
+
+export { addToHistory };

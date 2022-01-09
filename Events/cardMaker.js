@@ -1,10 +1,12 @@
+import { addToHistory } from "./history.js";
+
 const templateWord = document.getElementById('template-word').content;
 const mainSection = document.getElementById('main-section');
 
 // Detects if there are items in the main section and deletes them
 function removeMainSectionElements() {
     const existingElements = document.querySelectorAll('#main-section *');
-    console.log('miau')
+
     if (existingElements.length > 0) {
         existingElements.forEach(word => word.remove());
 
@@ -60,6 +62,8 @@ function create(data) {
         // Show it in the main section
         const newTemplateWord = templateWord.cloneNode(true);
         mainSection.appendChild(newTemplateWord);
+
+        addToHistory();
     });
     
 }
