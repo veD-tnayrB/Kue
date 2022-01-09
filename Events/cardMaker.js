@@ -4,7 +4,7 @@ const mainSection = document.getElementById('main-section');
 // Detects if there are items in the main section and deletes them
 function removeMainSectionElements() {
     const existingElements = document.querySelectorAll('#main-section *');
-
+    console.log('miau')
     if (existingElements.length > 0) {
         existingElements.forEach(word => word.remove());
 
@@ -26,19 +26,20 @@ function create(data) {
         const audio = templateWord.querySelector('.audio');
 
         const playButton = templateWord.querySelector('.play');
-        const pauseButton = templateWord.querySelector('.pause');
-        const none = templateWord.querySelector('.none');
-
+        
         // Detects if audio is available and displays the button in almost being true
-        element.phonetics.forEach(element => {
-            if (element.audio !== undefined) {
-                audio.setAttribute('src', element.audio);
-                playButton.style.display = 'initial';
+        if (element.phonetics.length > 0) {
+            element.phonetics.forEach(item => {
+                if (item.hasOwnProperty('audio') && item.audio !== undefined) {
+                    audio.setAttribute('src', item.audio);
+                    playButton.style.display = 'initial';
+                }
+            });
 
-            } else {
-                playButton.style.display = 'none';
-            }
-        })
+        } else {
+            audio.setAttribute('src', '');
+            playButton.style.display = 'none';
+        }
 
         const origin = templateWord.querySelector('.origin');
         origin.textContent = element.origin;
