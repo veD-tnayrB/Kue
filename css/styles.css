@@ -147,16 +147,16 @@ body {
 #main {
     width: 100vw;
     min-width: 255px;
-    min-height: 85vh;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; z-index: 3;
 }
 
 #main-section {
-    width: 100%;
+    width: 80%;
+    height: 95%;
 
-    margin: 12px 0 0 0;
+    margin: 10px auto;
 
     display: flex;
     flex-direction: column;
@@ -165,8 +165,9 @@ body {
 
 .message {
     width: 100%;
+    height: 100%;
 
-    margin: 10px 0 50px 0;
+    margin: 0 0 10px 0;
 
     display: flex;
     justify-content: space-around;
@@ -298,10 +299,7 @@ body {
 
     width: 80%;
     max-width: 850px;
-
     height: fit-content;
-
-    margin: 5px 0;
 }
 
 .word-cont:last-child {
@@ -385,6 +383,12 @@ body {
 
 #about-footer-section h4 {
     font-size: 20px;
+
+    margin: 0 10px;
+}
+
+#about-footer-section p {
+    margin: 0 10px;
 }
 
 #copy-social-section {
@@ -397,6 +401,10 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+}
+
+#copy-social-section span {
+    margin: 0 0 0 10px;
 }
 
 #social-media-cont {

@@ -1,14 +1,13 @@
 export default class UI {
+
     static language = 'en';
     static mainSection = document.getElementById('main-section');
     static historySection = document.querySelector('.history-cont');
 
 
     static createCard(word, partOfSpeech, phonetic, audio, origin, definition, example) {
-        this.mainSection.innerHTML = ''; // Reset all the main section
-
         const card = cardStructure(word, partOfSpeech, phonetic, audio, origin, definition, example);
-        this.mainSection.innerHTML += card;
+        this.mainSection.innerHTML = card;
 
         this.addToHistory();
         this.playAudio();
@@ -17,6 +16,7 @@ export default class UI {
     static setLanguage() {
         const languageIndicator = document.getElementById('language-indicator');
         languageIndicator.classList.toggle('active');
+
         this.language = this.language === "en" ? "es" : "en";
     }
 
@@ -49,9 +49,8 @@ export default class UI {
     }
 
     static setInformation(message, id) {
-        this.mainSection.innerHTML = '' // Reset main section
-
         const messageElement = infoStructure(message, id);
+        
         this.mainSection.innerHTML = messageElement;
     }
 
@@ -69,6 +68,7 @@ const cardStructure = (word, partOfSpeech, phonetic, audio, origin, definition, 
                 <div class="phonetic-cont">
                     <span class="phonetic">${phonetic}</span>
                     <audio src=${audio} class="audio">
+                        <i class="fas fa-volume-mute audio-icon none" alt="Your browser does not support the file" title="Your browser does not support the file"></i>
                     </audio>
                     <div class="audio-indicator">
                         ${audio !== undefined ? '<i class="fas fa-play-circle audio-icon play" title="Play"></i>' : '<i class="fas fa-volume-mute audio-icon none" alt="Audio file not found" title="Audio file not found"></i>'}

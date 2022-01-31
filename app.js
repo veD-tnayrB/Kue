@@ -1,27 +1,35 @@
 import UI from './js/ui.js';
 
 async function getData(language, word) {
-    UI.setInformation('Buscando', 2);
+    UI.setInformation(`Hmmm, ${word}...`, 2);
 
-    const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/${language}/${word}`);
+    try {
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/${language}/${word}`);
 
-    if (response.status >= 200 && response.status < 400) {
-        const datas = await response.json();
+        if (response.status >= 200 && response.status < 404) {
+            const datas = await response.json();
 
-        const {meanings, origin = '', phonetic = '', phonetics} = datas[0];
-        const {audio} = phonetics[0];
-        const {definitions = '', partOfSpeech = ''} = meanings[0];
-        const {definition = '', example = ''} = definitions[0];
-    
-        UI.createCard(word, partOfSpeech, phonetic, audio, origin, definition, example);
+            const {meanings, origin = '', phonetic = '', phonetics} = datas[0];
+            const {audio} = phonetics[0];
+            const {definitions = '', partOfSpeech = ''} = meanings[0];
+            const {definition = '', example = ''} = definitions[0];
         
-    } else if (response.status >= 400 && response.status < 500) {
-        UI.setInformation('We can\'t find the word you entered 😔, make sure the language is correct', 3);
-
-    } else if (response.status >= 500) {
-        UI.setInformation('Apparently we are having server problems 🤡!', 1)
+            UI.createCard(word, partOfSpeech, phonetic, audio, origin, definition, example);
         
+        } else if (response.status >= 404 && response.status < 500) {
+            UI.setInformation('We can\'t find the word you entered 😔, make sure the language is correct or try again', 3);
+
+        } else if (response.status >= 500) {
+            UI.setInformation('Apparently we are having server problems 🤡!', 1);
+            
+        }
+
+    } catch (err) {
+        console.log(err)
+        UI.setInformation('Oops, something went wrong, try again 😣', 1)
     }
+    
+    
 }
 
 
