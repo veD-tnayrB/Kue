@@ -41,7 +41,7 @@ body {
 }
 
 #nav {
-    width: 95%;
+    width: 98%;
     height: 90%;
 
     display: flex;
@@ -57,7 +57,8 @@ body {
 }
 
 #logo {
-    width: 50px;
+    color: var(--General-Text);
+    font-size: 50px;
 }
 
 #logo-text {
@@ -189,9 +190,9 @@ body {
     width: 50%;
 }
 
-#loading-image {
-    width: 50%;
-    height: 50%;
+.Loading {
+    width: 48%;
+    height: 48%;
 
     animation: rotate 1s infinite ease-in-out;
 }
@@ -241,7 +242,7 @@ body {
     top: 0;
     right: 0;
 
-    transition: width .2s ease-in-out;
+    transition: width .2s linear;
 }
 
 .history-active {
@@ -259,25 +260,33 @@ body {
 .history-item {
     background: var(--Gray);
 
-    height: 50px;
+    height: 80px;
 
     margin: 10px 10px 10px 20px;
-    padding: 20px 0 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .history-item:hover {
-    background: #ff0000;
+    background: var(--White);
 }
 
 .history-item:active {
-    background: #be0101;
+    background: #e4e4e4;
 }
 
 .previous-word {
     color: #707070;
+    font-weight: bold;
     text-transform: capitalize;
 
     margin: 0 0 0 20px;
+}
+
+.previous-language {
+    text-transform: uppercase;
 }
 
 
@@ -340,8 +349,6 @@ body {
     cursor: pointer;
 
     margin: 0 0 0 0;
-    
-    display: none;
 }
 
 
@@ -353,10 +360,6 @@ body {
     font-size: 18px;
 
     margin: 10px 0 15px 0;
-}
-
-.origin::first-letter, .meaning::first-letter, .example::first-letter {
-    text-transform: uppercase;
 }
 
 
@@ -419,7 +422,7 @@ body {
 /* Media Query Zone*/
 @media (max-width: 600px) {
     #logo {
-        width: 25px;
+        font-size: 25px;
     }
 
     #logo-text {

@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Kue</title>
-        <link rel="shortcut icon" href="Resources/logo.svg" type="image/x-icon">
-        <link rel="stylesheet" href="styles.css">
-        
         <!-- Font awesome Kit -->
         <script src="https://kit.fontawesome.com/98f2660b8c.js" crossorigin="anonymous"></script>
 
@@ -17,12 +13,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google" content="notranslate">
+
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="shortcut icon" href="assets/resources/logo.svg" type="image/x-icon">
+        <title>Kue - A very special dictionary</title>
     </head>
     <body>
         <header id="header">
             <nav id="nav">
                 <div id="logo-cont">
-                    <img src="Resources/logo.svg" id="logo">
+                    <i class="fas fa-leaf" id="logo"></i>
                     <h1 id="logo-text">Kue</h1>
                 </div>
     
@@ -46,7 +46,7 @@
                         <h2 id="welcome-title">Welcome to Kue!</h2>
                         <span id="welcome-text">A very special dictionary.</span>
                     </div>
-                    <img src="Resources/Welcome.svg" alt="Welcome">
+                    <img src="assets/resources/Welcome.svg" alt="Welcome">
                 </div>
                 <!-- Here come the words! -->
             </section>
@@ -59,30 +59,6 @@
                 <!-- Here come history -->
             </aside>
         </main>
-
-        <!-- This is the template for the word card ;) -->
-        <template id="template-word">
-            <article class="word-cont">
-                <div class="title-type-cont">
-                    <h3 class="word"></h3>
-                    <span class="type"></span>
-                </div>
-                <div class="phonetic-cont">
-                    <span class="phonetic"></span>
-                    <audio class="audio">
-                        <i class="fas fa-ban audio-icon none" alt="Your browser cant load the audio" title="Your browser cant load the audio"></i>
-                    </audio>
-                    <i class="fas fa-play-circle audio-icon play"></i>
-                    <i class="fas fa-pause-circle audio-icon pause"></i>
-                </div>
-                <div class="meaning-cont">
-                    <span class="text-description" id="origin-label"></span><p class="origin"></p>
-                    <span class="text-description" id="meaning-label"></span><p class="meaning"></p>
-                    <span class="text-description" id="example-label"></span><p class="example"></p>
-                </div>
-            </article>
-        </template>
-
         
         <footer id="footer">
             <section id="about-footer-section">
@@ -102,12 +78,6 @@
             </section>
         </footer>
 
-        <script type="module" src="Events/conexion.js"></script>
-        <script type="module" src="Events/searchBar.js"></script>
-        <script type="module" src="Events/languageSelector.js"></script>
-        <script type="module" src="Events/cardMaker.js"></script>
-        <script type="module" src="Events/audioReproducer.js"></script>
-        <script type="module" src="Events/history.js"></script>
-        <script type="module" src="Events/messages.js"></script>
+        <script type="module" src="app.js"></script>
     </body>
 </html>
