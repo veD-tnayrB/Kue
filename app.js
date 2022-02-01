@@ -1,5 +1,6 @@
 import UI from './js/ui.js';
 
+/* API Conexion */
 async function getData(language, word) {
     UI.setInformation(`Hmmm, ${word}...`, 2);
 
@@ -25,7 +26,6 @@ async function getData(language, word) {
         }
 
     } catch (err) {
-        console.log(err)
         UI.setInformation('Oops, something went wrong, try again 😣', 1)
     }
     

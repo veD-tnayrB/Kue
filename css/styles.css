@@ -66,6 +66,7 @@ body {
     font-weight: 600;
 
     margin: 0 0 0 10px;
+    user-select: none;
 }
 
 #search-bar-cont { 
@@ -240,6 +241,7 @@ body {
 
     width: 20px;
     min-height: 700px;
+    height: 80vh;
 
     position: relative;
     top: 0;
@@ -261,7 +263,7 @@ body {
 }
 
 .history-item {
-    background: var(--Gray);
+    background: #eeeded;
 
     height: 80px;
 

@@ -31,20 +31,21 @@ export default class UI {
         const buttonsCont = document.querySelector('.audio-indicator');
         const playButton = document.querySelector('.play');
 
-        playButton.addEventListener('click', () => {
-            const audio = buttonsCont.previousElementSibling;
-
-            buttonsCont.innerHTML = '<i class="fas fa-pause-circle audio-icon pause"></i>';
-            audio.play();
-
-            audio.addEventListener('ended', () => {
-
-                buttonsCont.innerHTML = '<i class="fas fa-play-circle audio-icon play" title="Play"></i>';
-                this.playAudio();
+        if (playButton !== null) {
+            playButton.addEventListener('click', () => {
+                const audio = buttonsCont.previousElementSibling;
+    
+                buttonsCont.innerHTML = '<i class="fas fa-pause-circle audio-icon pause"></i>';
+                audio.play();
+    
+                audio.addEventListener('ended', () => {
+    
+                    buttonsCont.innerHTML = '<i class="fas fa-play-circle audio-icon play" title="Play"></i>';
+                    this.playAudio();
+                })
+    
             })
-
-        })
-
+        }
         
     }
 
