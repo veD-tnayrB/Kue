@@ -147,9 +147,10 @@ body {
 #main {
     width: 100vw;
     min-width: 255px;
+    min-height: 80vh;
 
     display: flex;
-    justify-content: space-between; z-index: 3;
+    justify-content: space-between;
 }
 
 #main-section {
@@ -168,6 +169,7 @@ body {
     height: 100%;
 
     margin: 0 0 10px 0;
+    padding: 50px;
 
     display: flex;
     justify-content: space-around;
@@ -191,9 +193,9 @@ body {
     width: 50%;
 }
 
-.Loading {
-    width: 48%;
-    height: 48%;
+#Loading {
+    width: 30%;
+    height: 30%;
 
     animation: rotate 1s infinite ease-in-out;
 }
@@ -237,7 +239,7 @@ body {
     overflow-y: scroll;
 
     width: 20px;
-    max-height: 700px;
+    min-height: 700px;
 
     position: relative;
     top: 0;
@@ -364,7 +366,7 @@ body {
 
 /* Footer Zone */
 #footer {
-    background: var(--General-Text);
+    background: #262534;
     color: var(--White);
 
     width: 100%;

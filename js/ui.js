@@ -50,7 +50,7 @@ export default class UI {
 
     static setInformation(message, id) {
         const messageElement = infoStructure(message, id);
-        
+
         this.mainSection.innerHTML = messageElement;
     }
 
@@ -112,7 +112,7 @@ const infoStructure = (message, id) => {
 
     return (
         `<div class="message">
-            <img src="assets/resources/${src}.svg" class=${src} />
+            <img src="assets/resources/${src}.svg" id=${src} />
             <span class="">${message}</span>
         </div>`
     )
